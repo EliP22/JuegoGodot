@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://v3scccrpo404"]
+
+[ext_resource type="PackedScene" uid="uid://cb7ltmw4268mq" path="res://Escenas/jugador.tscn" id="1_waune"]
+[ext_resource type="Texture2D" uid="uid://cl4v05dgg3hik" path="res://Res/bkg1.jpg" id="2_rshk2"]
+[ext_resource type="Texture2D" uid="uid://cqui3n1rp6wjd" path="res://Res/bkg2.png" id="4_2icvy"]
+
+[sub_resource type="GDScript" id="GDScript_yq5gq"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass 
+
+
+
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_yq5gq")
+
+[node name="jugador" type="Node" parent="."]
+
+[node name="CharacterBody2D" parent="jugador" instance=ExtResource("1_waune")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(1, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_offset = Vector2(1, 1)
+motion_mirroring = Vector2(2680, 1578)
+
+[node name="Bkg1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(-542, -308)
+scale = Vector2(1.82065, 1.89663)
+texture = ExtResource("2_rshk2")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(2867.46, 1545.02)
+
+[node name="Bkg2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-571.728, -313.826)
+scale = Vector2(1.94822, 1.85693)
+texture = ExtResource("4_2icvy")
+centered = false
+offset = Vector2(1, 1)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(2680, 1578)

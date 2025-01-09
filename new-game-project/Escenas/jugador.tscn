@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb7ltmw4268mq"]
+
+[ext_resource type="Script" path="res://Scripts/jugadorg.gd" id="1_6a3mo"]
+[ext_resource type="Texture2D" uid="uid://bl85pvab8bqea" path="res://Res/blackhole.png" id="2_4ekev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0o8i"]
+
+[sub_resource type="Theme" id="Theme_fjtp7"]
+default_base_scale = 2.0
+default_font_size = 25
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["jugador"]]
+position = Vector2(62, 47)
+motion_mode = 1
+script = ExtResource("1_6a3mo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x0o8i")
+
+[node name="Blackhole" type="Sprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.169514, 0.168317)
+texture = ExtResource("2_4ekev")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 379.0
+offset_top = -291.0
+offset_right = 530.0
+offset_bottom = -256.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_fjtp7")
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 5
+text = "0"
